@@ -33,7 +33,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group{{ $errors->has('last_name') ? ' has-error' : '' }}">
+                        <div class="form-group">
                             <div class="row">
                                 <div class="col-md-6">
                                     <label class="control-label">Last Name</label>
@@ -47,7 +47,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group{{ $errors->has('national_id') ? ' has-error' : '' }}">
+                        <div class="form-group">
                             <div class="row">
                                 <div class="col-md-6">
                                     <label class="control-label">National ID</label>
@@ -157,23 +157,6 @@
                                 </div>
                             </div>
                         </div>
-
-                        <!-- <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label class="col-md-4 control-label">Password</label>
-
-                            <div class="col-md-6">
-
-                            </div>
-                        </div>
-
-                        <div class="form-group{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
-                            <label class="col-md-4 control-label">Confirm Password</label>
-
-                            <div class="col-md-6">
-
-                            </div>
-                        </div> -->
-
                         <div class="form-group">
                             <button type="submit" class="btn btn-primary">
                                 <i class="fa fa-btn fa-user"></i>Register
