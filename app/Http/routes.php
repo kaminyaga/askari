@@ -22,3 +22,7 @@ Route::get('/home', 'HomeController@index');
 Route::group(['prefix' => 'dashboard'], function () {
     Route::get('new_offender', 'DashboardController@newOffender');
 });
+
+Route::group(['prefix' => 'dashboard'], function () {
+    Route::get('offender/{national_id}', 'OffenderController@offenderProfile');
+});

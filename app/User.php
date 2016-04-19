@@ -33,4 +33,14 @@ class User extends Authenticatable
         'password',
         'remember_token',
     ];
+
+    /**
+     * A police officer can add many offendeers
+     *
+     * @return Object Offenders added by User
+     */
+    public function offenders()
+    {
+        return $this->hasMany('Askari\Offender')
+    }
 }
