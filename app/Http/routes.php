@@ -18,3 +18,7 @@ Route::get('/', function () {
 Route::auth();
 
 Route::get('/home', 'HomeController@index');
+
+Route::group(['prefix' => 'dashboard'], function () {
+    Route::get('new_offender', 'DashboardController@newOffender');
+});
