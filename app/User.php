@@ -41,6 +41,6 @@ class User extends Authenticatable
      */
     public function offenders()
     {
-        return $this->hasMany('Askari\Offender')
+        return $this->hasMany('Askari\Offender');
     }
 }

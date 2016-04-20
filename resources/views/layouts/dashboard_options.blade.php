@@ -1,7 +1,7 @@
 
 <ul class="list-group">
   <li class="list-group-item active">
-    <a href="#">New Offender</a>
+    {!! link_to_route('all_offenders', $title = 'Offenders', $parameters = [], $attributes = []) !!}
 </li>
   <li class="list-group-item">Dapibus ac facilisis in</li>
   <li class="list-group-item">Morbi leo risus</li>

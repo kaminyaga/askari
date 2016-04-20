@@ -20,9 +20,33 @@ Route::auth();
 Route::get('/home', 'HomeController@index');
 
 Route::group(['prefix' => 'dashboard'], function () {
-    Route::get('new_offender', 'DashboardController@newOffender');
-});
 
-Route::group(['prefix' => 'dashboard'], function () {
-    Route::get('offender/{national_id}', 'OffenderController@offenderProfile');
+    /**
+     * Show new offender form to the Askari Platform
+     */
+    Route::get('offenders', [
+        'uses' => 'OffenderController@all',
+        'as' => 'all_offenders'
+    ]);
+
+    /**
+     * Show new offender form to the Askari Platform
+     */
+    Route::get('offenders/new', 'OffenderController@create');
+
+    /**
+     * View / Update offenders Profile
+     */
+    Route::get('offenders/{national_id}', [
+            'uses' => 'OffenderController@offenderProfile',
+            'as' => 'offender'
+        ]);
+
+    /**
+     * Add new offender to the Askari Platform
+     */
+    Route::post('offenders/new', [
+        'uses' => 'OffenderController@store',
+        'as' => 'new_offender'
+    ]);
 });

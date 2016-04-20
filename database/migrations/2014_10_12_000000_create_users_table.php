@@ -17,7 +17,7 @@ class CreateUsersTable extends Migration
             $table->string('first_name');
             $table->string('last_name');
             $table->string('middle_name');
-            $table->string('national_id');
+            $table->integer('national_id')->unique();
             $table->string('rank');
             $table->string('department');
             $table->string('police_id');
