@@ -43,4 +43,14 @@ class User extends Authenticatable
     {
         return $this->hasMany('Askari\Offender');
     }
+
+    /**
+     * An officer can issue many traffic offences
+     *
+     * @return Object
+     */
+    public function traffic_offences()
+    {
+        return $this->hasMany('Askari\Traffic');
+    }
 }

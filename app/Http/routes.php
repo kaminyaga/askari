@@ -49,4 +49,19 @@ Route::group(['prefix' => 'dashboard'], function () {
         'uses' => 'OffenderController@store',
         'as' => 'new_offender'
     ]);
+
+    Route::get('offence/traffic', [
+        'uses' => 'TrafficController@show',
+        'as' => 'traffic_offences'
+    ]);
+
+    Route::get('offence/traffic/new', [
+        'uses' => 'TrafficController@create',
+        'as' => 'traffic_offence'
+    ]);
+
+    Route::post('offence/traffic/new', [
+        'uses' => 'TrafficController@store',
+        'as' => 'new_traffic_offence'
+    ]);
 });

@@ -13,6 +13,7 @@ class CreateOffendersTable extends Migration
     public function up()
     {
         Schema::create('offenders', function (Blueprint $table) {
+            $table->increments('id');
             $table->string('first_name');
             $table->string('last_name');
             $table->string('middle_name');

@@ -25,7 +25,9 @@
                                     </a>
                                 </h4>
                             </div>
-                            <p> ID Number: {{ $offender->national_id }}</p>
+                            <p>
+                                <strong>ID Number:</strong> {{ $offender->national_id }}
+                            </p>
                         </section>
                     </div>
 
@@ -33,5 +35,8 @@
             </div>
 
         @endforeach
+
+        {!! $offenders->links() !!}
+
     </div>
 @endsection

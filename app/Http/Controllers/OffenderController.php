@@ -17,7 +17,7 @@ class OffenderController extends Controller
      */
     public function all()
     {
-        $offenders = Offender::all();
+        $offenders = Offender::paginate(8);
         return view('dashboard.all_offenders', compact('offenders'));
     }
 

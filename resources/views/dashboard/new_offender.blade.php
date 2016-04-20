@@ -42,7 +42,7 @@
                 <div class="col-md-6">
                     <div class="form-group{{ $errors->has('sex') ? ' has-error' : '' }}">
                         {!! Form::label('sex', 'Sex'); !!}
-                        {!! Form::select('sex', array('male' => 'Male', 'female' => 'Female'), 'male', ['class' => 'form-control']) !!}
+                        {!! Form::select('sex', ['male' => 'Male', 'female' => 'Female'], 'male', ['class' => 'form-control']) !!}
                         @if ($errors->has('sex'))
                             <span class="help-block">
                                 <strong>{{ $errors->first('sex') }}</strong>
