@@ -50,18 +50,51 @@ Route::group(['prefix' => 'dashboard'], function () {
         'as' => 'new_offender'
     ]);
 
+    /**
+     * See a list of all traffic offences
+     */
     Route::get('offence/traffic', [
         'uses' => 'TrafficController@show',
         'as' => 'traffic_offences'
     ]);
 
+    /**
+     * See the new traffic offence page
+     */
     Route::get('offence/traffic/new', [
         'uses' => 'TrafficController@create',
         'as' => 'traffic_offence'
     ]);
 
+    /**
+     * Add a new traffic offence
+     */
     Route::post('offence/traffic/new', [
         'uses' => 'TrafficController@store',
         'as' => 'new_traffic_offence'
+    ]);
+
+    /**
+     * See a list of all roberies
+     */
+    Route::get('offence/robbery', [
+        'uses' => 'RobberyController@show',
+        'as' => 'robbery_offences'
+    ]);
+
+    /**
+     * See the new robbery offence page
+     */
+    Route::get('offence/robbery/new', [
+        'uses' => 'RobberyController@create',
+        'as' => 'robbery_offence'
+    ]);
+
+    /**
+     * Add a new robbery offence
+     */
+    Route::post('offence/robbery/new', [
+        'uses' => 'RobberyController@store',
+        'as' => 'new_robbery_offence'
     ]);
 });

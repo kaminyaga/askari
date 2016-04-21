@@ -6,31 +6,32 @@ use Illuminate\Http\Request;
 use Askari\Http\Requests;
 use Askari\Offender;
 use Askari\User;
-use Askari\Traffic;
+use Askari\Robbery;
 
-class TrafficController extends Controller
+class RobberyController extends Controller
 {
     /**
-     * show list of all traffic offences
+     * Show a list of all roberry offences.
      *
      * @return View
      */
     public function show()
     {
-        $traffic_offences = Traffic::latest()->get();
-        $traffic_offences->each(function ($offence) {
+        $robbery_offences = Robbery::latest()->get();
+        $robbery_offences->each(function ($offence) {
             $officer = User::find($offence->user_id);
             $offence['officer'] = $officer->first_name. ' '. $officer->last_name;
 
             $offender = Offender::find($offence->offender_id);
             $offence['offender'] = $offender->first_name. ' '. $offender->last_name;
+
         });
 
-        return view('dashboard.offences.traffic.list', compact('traffic_offences'));
+        return view('dashboard.offences.robbery.list', compact('robbery_offences'));
     }
 
     /**
-     * Open the new traffic offence page
+     * Show the new robbery offence form
      *
      * @return View
      */
@@ -42,7 +43,6 @@ class TrafficController extends Controller
                                         . ' '.$offender->middle_name
                                         . ' '.$offender->last_name;
         });
-
         $officers = User::all()->each(function ($officer) {
             $officer['search_value'] = $officer->police_id
                                         . ' '.$officer->first_name
@@ -52,36 +52,37 @@ class TrafficController extends Controller
 
         $offenders = $offenders->lists('search_value', 'id')->toArray();
         $officers = $officers->lists('search_value', 'id');
-        return view('dashboard.offences.traffic.new', compact('offenders', 'officers'));
+
+        return view('dashboard.offences.robbery.new', compact('offenders', 'officers'));
     }
 
     /**
-     * Add new traffic offence
+     * Add new Robbery offence
      *
-     * @param  Request $request [description]
-     * @return [type]           [description]
+     * @param  Request $request Request from robbery form
+     * @return Redirect
      */
     public function store(Request $request)
     {
         $this->validate($request, [
-            'citation_number' => 'required',
-            'traffic_id' => 'required',
-            'traffic_offence' => 'required',
+            'robbery_id' => 'required',
+            'crime_id' => 'required',
+            'evidence_id' => 'required',
             'offender_id' => 'required',
-            'date_of_issue' => 'required',
-            'court_date' => 'required',
             'user_id' => 'required',
+            'victims_name' => 'required',
+            'crime_location' => 'required',
+            'comments' => 'required',
          ]);
 
-        if (Traffic::create($request->all())) {
+        if (Robbery::create($request->all())) {
             $request->session()->flash('status', 'success');
-            $request->session()->flash('message', 'New Traffic offence successfully addded.');
-            return redirect()->route('traffic_offences');
+            $request->session()->flash('message', 'New Robbery offence successfully addded.');
+            return redirect()->route('robbery_offences');
         } else {
             $request->session()->flash('status', 'error');
-            $request->session()->flash('message', 'Error adding new Traffic offence.');
-            return redirect()->route('new_traffic_offence');
+            $request->session()->flash('message', 'Error adding new Robbery offence.');
+            return redirect()->route('new_robbery_offence');
         }
-
     }
 }

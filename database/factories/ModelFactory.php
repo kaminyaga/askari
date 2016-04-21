@@ -51,3 +51,16 @@ $factory->define(Askari\Traffic::class, function (Faker\Generator $faker) {
         'user_id' => 1,
     ];
 });
+
+$factory->define(Askari\Robbery::class, function (Faker\Generator $faker) {
+    return [
+        'robbery_id' => $faker->word,
+        'crime_id' => $faker->word,
+        'evidence_id' => $faker->word,
+        'offender_id' => 1,
+        'user_id' => 1,
+        'victims_name' => $faker->name,
+        'crime_location' => $faker->word,
+        'comments' => $faker->sentence,
+    ];
+});
