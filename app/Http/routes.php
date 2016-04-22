@@ -97,4 +97,52 @@ Route::group(['prefix' => 'dashboard'], function () {
         'uses' => 'RobberyController@store',
         'as' => 'new_robbery_offence'
     ]);
+
+    /**
+     * Show a list of all impounds
+     */
+    Route::get('offence/impounds', [
+        'uses' => 'ImpoundController@show',
+        'as' => 'impounds'
+    ]);
+
+    /**
+     * Show the New impound form
+     */
+    Route::get('offence/impounds/new', [
+        'uses' => 'ImpoundController@create',
+        'as' => 'impound'
+    ]);
+
+    /**
+     * Add new impound record
+     */
+    Route::post('offence/impounds/new', [
+        'uses' => 'ImpoundController@store',
+        'as' => 'new_impound'
+    ]);
+
+    /**
+     * Show list of all missin persons
+     */
+    Route::get('offence/missing', [
+        'uses' => 'MissingPersonsController@show',
+        'as' => 'missings'
+    ]);
+
+    /**
+     * Show the New impound form
+     */
+    Route::get('offence/missing/new', [
+        'uses' => 'MissingPersonsController@create',
+        'as' => 'missing'
+    ]);
+
+    /**
+     * Add new impound record
+     */
+    Route::post('offence/missing/new', [
+        'uses' => 'MissingPersonsController@store',
+        'as' => 'new_missing'
+    ]);
 });

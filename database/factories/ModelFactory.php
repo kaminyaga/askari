@@ -32,9 +32,9 @@ $factory->define(Askari\Offender::class, function (Faker\Generator $faker) {
         'first_name' => $faker->firstName,
         'last_name' => $faker->lastName,
         'middle_name' => $faker->lastName,
-        'sex' => 'male',
+        'sex' => ['Male', 'Female'][array_rand([0, 1])],
         'dob' => '12/13/1990',
-        'phone_number' => '0721949259',
+        'phone_number' => '0712345678',
         'user_id' => 1,
         'national_id' => rand(10000, 999999),
     ];
@@ -62,5 +62,33 @@ $factory->define(Askari\Robbery::class, function (Faker\Generator $faker) {
         'victims_name' => $faker->name,
         'crime_location' => $faker->word,
         'comments' => $faker->sentence,
+    ];
+});
+
+$factory->define(Askari\Impound::class, function (Faker\Generator $faker) {
+    return [
+        'impound_id' => $faker->word,
+        'make' => $faker->word,
+        'licence_plate' => $faker->word,
+        'offender_id' => 1,
+        'dln' => $faker->word,
+        'vehicle_type' => $faker->word,
+        'citation_number' => $faker->word,
+    ];
+});
+
+$factory->define(Askari\MissingPersons::class, function (Faker\Generator $faker) {
+    return [
+        'name' => $faker->name,
+        'sex'=> ['Male', 'Female'][array_rand([0, 1])],
+        'dob'=> $faker->name,
+        'national_id'=> $faker->name,
+        'phone_number'=> $faker->phoneNumber,
+        'guardians'=> $faker->name,
+        'reporting_date' => $faker->date,
+        'evidence_id' => 1,
+        'date_last_seen' => $faker->date,
+        'place_last_seen' => $faker->date,
+        'suspects' => $faker->sentence,
     ];
 });

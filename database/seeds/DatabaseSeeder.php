@@ -15,5 +15,7 @@ class DatabaseSeeder extends Seeder
         $this->call(OffendersTableSeeder::class);
         $this->call(TrafficOffenceTableSeeder::class);
         $this->call(RobberiesTableSeeder::class);
+        $this->call(ImpoundsTableSeeder::class);
+        $this->call(MissingPersonsSeeder::class);
     }
 }
