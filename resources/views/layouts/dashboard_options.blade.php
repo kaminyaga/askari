@@ -15,4 +15,7 @@
   <li class="list-group-item">
       {!! link_to_route('missings', $title = 'Missing Persons', $parameters = [], $attributes = []) !!}
   </li>
+  <li class="list-group-item">
+      {!! link_to_route('evidences', $title = 'Evidence', $parameters = [], $attributes = []) !!}
+  </li>
 </ul>

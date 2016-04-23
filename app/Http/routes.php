@@ -131,7 +131,7 @@ Route::group(['prefix' => 'dashboard'], function () {
     ]);
 
     /**
-     * Show the New impound form
+     * Show the New Missing persons form
      */
     Route::get('offence/missing/new', [
         'uses' => 'MissingPersonsController@create',
@@ -139,10 +139,34 @@ Route::group(['prefix' => 'dashboard'], function () {
     ]);
 
     /**
-     * Add new impound record
+     * Add new Missing persons record
      */
     Route::post('offence/missing/new', [
         'uses' => 'MissingPersonsController@store',
         'as' => 'new_missing'
+    ]);
+
+        /**
+     * Show list of all missin persons
+     */
+    Route::get('offence/evidence', [
+        'uses' => 'EvidenceController@show',
+        'as' => 'evidences'
+    ]);
+
+    /**
+     * Show the New evidence form
+     */
+    Route::get('offence/evidence/new', [
+        'uses' => 'EvidenceController@create',
+        'as' => 'evidence'
+    ]);
+
+    /**
+     * Add new evidence persons record
+     */
+    Route::post('offence/evidence/new', [
+        'uses' => 'EvidenceController@store',
+        'as' => 'new_evidence'
     ]);
 });
