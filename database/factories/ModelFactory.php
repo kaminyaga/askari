@@ -92,3 +92,13 @@ $factory->define(Askari\MissingPersons::class, function (Faker\Generator $faker)
         'suspects' => $faker->sentence,
     ];
 });
+
+$factory->define(Askari\Evidence::class, function (Faker\Generator $faker) {
+    return [
+        'item' => $faker->word,
+        'quantity' => rand(1, 10),
+        'serial_number' => $faker->md5,
+        'status' => $faker->boolean,
+        'description' => $faker->sentence,
+    ];
+});

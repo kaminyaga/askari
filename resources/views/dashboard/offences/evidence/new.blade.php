@@ -9,7 +9,7 @@
         <hr>
         @include('errors.feedback')
 
-        {!! Form::open(['url' => route('new_missing')]) !!}
+        {!! Form::open(['url' => route('new_evidence')]) !!}
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group{{ $errors->has('item') ? ' has-error' : '' }}">

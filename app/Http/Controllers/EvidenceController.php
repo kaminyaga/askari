@@ -3,8 +3,8 @@
 namespace Askari\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 use Askari\Http\Requests;
+use Askari\Evidence;
 
 class EvidenceController extends Controller
 {
@@ -31,16 +31,11 @@ class EvidenceController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'name' => 'required',
-            'sex' => 'required',
-            'dob' => 'required',
-            'national_id' => 'required',
-            'phone_number' => 'required',
-            'guardians' => 'required',
-            'reporting_date' => 'required',
-            'evidence_id' => 'required',
-            'date_last_seen' => 'required',
-            'place_last_seen' => 'required',
+            'item' => 'required',
+            'quantity' => 'required',
+            'serial_number' => 'required',
+            'status' => 'required',
+            'description' => 'required',
          ]);
 
         if (Evidence::create($request->all())) {
