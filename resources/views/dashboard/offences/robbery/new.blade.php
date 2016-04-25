@@ -12,7 +12,7 @@
         {!! Form::open(['url' => route('new_robbery_offence')]) !!}
 
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-6">
                     <div class="form-group{{ $errors->has('robbery_id') ? ' has-error' : '' }}">
                         {!! Form::label('robbery_id', 'Robbery ID'); !!}
                         {!! Form::text('robbery_id', null, ['class' => 'form-control']) !!}
@@ -23,7 +23,7 @@
                         @endif
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-6">
                     <div class="form-group{{ $errors->has('crime_id') ? ' has-error' : '' }}">
                         {!! Form::label('crime_id', 'Crime ID'); !!}
                         {!! Form::text('crime_id', null, ['class' => 'form-control']) !!}
@@ -34,20 +34,9 @@
                         @endif
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="form-group{{ $errors->has('evidence_id') ? ' has-error' : '' }}">
-                        {!! Form::label('evidence_id', 'Evidence ID'); !!}
-                        {!! Form::text('evidence_id', null, ['class' => 'form-control']) !!}
-                        @if ($errors->has('evidence_id'))
-                            <span class="help-block">
-                                <strong>{{ $errors->first('evidence_id') }}</strong>
-                            </span>
-                        @endif
-                    </div>
-                </div>
             </div>
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <div class="form-group{{ $errors->has('offender_id') ? ' has-error' : '' }}">
                         {!! Form::label('offender_id', 'Offender'); !!}
                         {!! Form::select('offender_id', $offenders, null, ['class' => 'form-control', 'id' => 'select2', 'placeholder' => '']) !!}
@@ -58,13 +47,24 @@
                         @endif
                     </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <div class="form-group{{ $errors->has('user_id') ? ' has-error' : '' }}">
                         {!! Form::label('user_id', 'Issuing user_id'); !!}
                         {!! Form::select('user_id', $officers, null, ['class' => 'form-control', 'id' => 'issuing_officer', 'placeholder' => '']) !!}
                         @if ($errors->has('user_id'))
                             <span class="help-block">
                                 <strong>{{ $errors->first('user_id') }}</strong>
+                            </span>
+                        @endif
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group{{ $errors->has('evidence_id') ? ' has-error' : '' }}">
+                        {!! Form::label('evidence_id', 'Evidence ID'); !!}
+                        {!! Form::select('evidence_id', $evidences, ['class' => 'form-control', 'placeholder' => '', 'id' => 'evidence_picker']) !!}
+                        @if ($errors->has('evidence_id'))
+                            <span class="help-block">
+                                <strong>{{ $errors->first('evidence_id') }}</strong>
                             </span>
                         @endif
                     </div>

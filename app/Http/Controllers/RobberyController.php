@@ -7,6 +7,7 @@ use Askari\Http\Requests;
 use Askari\Offender;
 use Askari\User;
 use Askari\Robbery;
+use Askari\Evidence;
 
 class RobberyController extends Controller
 {
@@ -50,10 +51,15 @@ class RobberyController extends Controller
                                         . ' '.$officer->last_name;
         });
 
-        $offenders = $offenders->lists('search_value', 'id')->toArray();
+        $evidences = Evidence::all()->each(function ($evidence) {
+            $evidence['search_value'] = $evidence->id . ' '. $evidence->item;
+        });
+
+        $evidences = $evidences->lists('search_value', 'id');
+        $offenders = $offenders->lists('search_value', 'id');
         $officers = $officers->lists('search_value', 'id');
 
-        return view('dashboard.offences.robbery.new', compact('offenders', 'officers'));
+        return view('dashboard.offences.robbery.new', compact('offenders', 'officers', 'evidences'));
     }
 
     /**

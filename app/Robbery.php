@@ -16,4 +16,14 @@ class Robbery extends Model
         'crime_location',
         'comments',
     ];
+
+     /**
+     * A Robbery offence belongs to an offender
+     *
+     * @return object
+     */
+    public function offender()
+    {
+        return $this->belongsTo('Askari\Offender');
+    }
 }

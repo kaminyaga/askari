@@ -15,7 +15,15 @@ class EvidenceController extends Controller
      */
     public function show()
     {
-        return view('dashboard.offences.evidence.list');
+        $evidences = Evidence::all();
+
+        return view('dashboard.offences.evidence.list', compact('evidences'));
+    }
+
+    public function showEvidence($evidenceId)
+    {
+        $evidence = Evidence::findOrFail($evidenceId);
+        return view('dashboard.offences.evidence.profile', compact('evidence'));
     }
 
     /**
@@ -41,11 +49,11 @@ class EvidenceController extends Controller
         if (Evidence::create($request->all())) {
             $request->session()->flash('status', 'success');
             $request->session()->flash('message', 'New evidence successfully addded.');
-            return redirect()->route('missings');
+            return redirect()->route('evidences');
         } else {
             $request->session()->flash('status', 'error');
             $request->session()->flash('message', 'Error adding new evidence record.');
-            return redirect()->route('missing');
+            return redirect()->route('new_evidence');
         }
 
     }

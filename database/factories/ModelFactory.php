@@ -99,6 +99,6 @@ $factory->define(Askari\Evidence::class, function (Faker\Generator $faker) {
         'quantity' => rand(1, 10),
         'serial_number' => $faker->md5,
         'status' => $faker->boolean,
-        'description' => $faker->sentence,
+        'description' => $faker->paragraph,
     ];
 });

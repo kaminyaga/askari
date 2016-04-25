@@ -169,4 +169,9 @@ Route::group(['prefix' => 'dashboard'], function () {
         'uses' => 'EvidenceController@store',
         'as' => 'new_evidence'
     ]);
+
+    Route::get('offence/evidence/{id}', [
+        'uses' => 'EvidenceController@showEvidence',
+        'as' => 'evidence_profile'
+    ]);
 });

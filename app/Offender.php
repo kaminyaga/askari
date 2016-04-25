@@ -24,4 +24,34 @@ class Offender extends Model
     {
         return $this->belongsTo('Askari\User');
     }
+
+    /**
+     * An offender can have many traffic offences
+     *
+     * @return Object traffic offences
+     */
+    public function traffic_offences()
+    {
+        return $this->hasMany('Askari\Traffic');
+    }
+
+    /**
+     * An offender can have many robbery offences
+     *
+     * @return Object traffic offences
+     */
+    public function robbery_offences()
+    {
+        return $this->hasMany('Askari\Robbery');
+    }
+
+    /**
+     * An offender can have many impounds
+     *
+     * @return Object traffic offences
+     */
+    public function impounds()
+    {
+        return $this->hasMany('Askari\Impound');
+    }
 }

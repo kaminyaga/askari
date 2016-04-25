@@ -5,6 +5,7 @@ namespace Askari\Http\Controllers;
 use Illuminate\Http\Request;
 use Askari\Http\Requests;
 use Askari\MissingPersons;
+use Askari\Evidence;
 
 class MissingPersonsController extends Controller
 {
@@ -26,7 +27,13 @@ class MissingPersonsController extends Controller
      */
     public function create()
     {
-        return view('dashboard.offences.missing.new');
+        $evidences = Evidence::all()->each(function ($evidence) {
+            $evidence['search_value'] = $evidence->id . ' '. $evidence->item;
+        });
+
+        $evidences = $evidences->lists('search_value', 'id');
+
+        return view('dashboard.offences.missing.new', compact('evidences'));
     }
 
     /**

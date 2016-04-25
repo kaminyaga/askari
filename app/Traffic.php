@@ -25,4 +25,14 @@ class Traffic extends Model
     {
         return $this->belongsTo('Askari\User');
     }
+
+    /**
+     * A traffic offence belongs to an offender
+     *
+     * @return object
+     */
+    public function offender()
+    {
+        return $this->belongsTo('Askari\Offender');
+    }
 }

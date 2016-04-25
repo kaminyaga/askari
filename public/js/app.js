@@ -6,4 +6,8 @@ $(document).ready(function () {
     $('#issuing_officer').select2({
         placeholder: 'Select the Issuing Officer by police ID'
     });
+
+    $('#evidence_picker').select2({
+        placeholder: 'Pick mataching evidence Item'
+    });
 });

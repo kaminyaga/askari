@@ -33,7 +33,9 @@
                     <td>{{ $offence->sex }}</td>
                     <td>{{ $offence->dob }}</td>
                     <td>{{ $offence->reporting_date }}</td>
-                    <td>{{ $offence->evidence_id }}</td>
+                    <td>
+                        {!! link_to_route('evidence_profile', $title = $offence->evidence_id , $parameters = [$offence->evidence_id], $attributes = ['class' => 'btn btn-default btn-sm']) !!}
+                    </td>
                     <td>{{ $offence->date_last_seen }}</td>
                     <td>{{ $offence->place_last_seen }}</td>
                     <td>{{ $offence->suspects }}</td>

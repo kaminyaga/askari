@@ -21,6 +21,7 @@ class OffenderController extends Controller
         return view('dashboard.all_offenders', compact('offenders'));
     }
 
+
     /**
      * View an offenders profile
      *
@@ -29,7 +30,22 @@ class OffenderController extends Controller
      */
     public function offenderProfile($nationalId)
     {
-        return view('dashboard.offender_profile');
+        $offender = Offender::where('national_id', $nationalId)->first();
+
+        $traffic_offences = $offender->traffic_offences;
+        $traffic_offences->each(function ($offence) {
+            $officer = User::find($offence->user_id);
+            $offence['officer'] = $officer->first_name. ' '. $officer->last_name;
+        });
+
+        $robbery_offences = $offender->robbery_offences;
+        $robbery_offences->each(function ($offence) {
+            $officer = User::find($offence->user_id);
+            $offence['officer'] = $officer->first_name. ' '. $officer->last_name;
+        });
+
+        $impounds = $offender->impounds;
+        return view('dashboard.offender_profile', compact('offender', 'traffic_offences', 'impounds', 'robbery_offences'));
     }
 
     /**

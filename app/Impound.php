@@ -15,4 +15,14 @@ class Impound extends Model
         'vehicle_type',
         'citation_number',
     ];
+
+     /**
+     * An impound belongs to an offender
+     *
+     * @return object
+     */
+    public function offender()
+    {
+        return $this->belongsTo('Askari\Offender');
+    }
 }

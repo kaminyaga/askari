@@ -94,7 +94,7 @@
                 <div class="col-md-4">
                     <div class="form-group{{ $errors->has('evidence_id') ? ' has-error' : '' }}">
                         {!! Form::label('evidence_id', 'Evidence ID'); !!}
-                        {!! Form::text('evidence_id', null, ['class' => 'form-control']) !!}
+                        {!! Form::select('evidence_id', $evidences, ['class' => 'form-control', 'placeholder' => '', 'id' => 'evidence_picker']) !!}
                         @if ($errors->has('evidence_id'))
                             <span class="help-block">
                                 <strong>{{ $errors->first('evidence_id') }}</strong>
