@@ -45,7 +45,7 @@
               </ul>
               <!-- Tab panes -->
               <div class="tab-content">
-                <div role="tabpanel" class="tab-pane" id="traffic">
+                <div role="tabpanel" class="tab-pane active" id="traffic">
                     @if($traffic_offences->count() > 0)
                         <table class="table table-striped">
                             <tr>
@@ -70,7 +70,7 @@
                         <div class="well">{{$offender->name }} has no traffic offences</div>
                     @endif
                 </div>
-                <div role="tabpanel" class="tab-pane active" id="robbery">
+                <div role="tabpanel" class="tab-pane" id="robbery">
                     @if($robbery_offences->count() > 0)
                         <table class="table table-striped">
                             <tr>

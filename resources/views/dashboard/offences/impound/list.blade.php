@@ -30,7 +30,9 @@
                 <tr>
                     <td>{{ $offence->impound_id }}</td>
                     <td>{{ $offence->licence_plate }}</td>
-                    <td>{{ $offence->offender }}</td>
+                    <td>
+                        {!! link_to_route('offender', $title = $offence->offender, $parameters = [$offence->national_id]) !!}
+                    </td>
                     <td>{{ $offence->dln }}</td>
                     <td>{{ $offence->make }}</td>
                     <td>{{ $offence->vehicle_type }}</td>

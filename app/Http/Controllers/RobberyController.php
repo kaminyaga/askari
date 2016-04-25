@@ -25,7 +25,7 @@ class RobberyController extends Controller
 
             $offender = Offender::find($offence->offender_id);
             $offence['offender'] = $offender->first_name. ' '. $offender->last_name;
-
+            $offence['national_id'] = $offender->national_id;
         });
 
         return view('dashboard.offences.robbery.list', compact('robbery_offences'));

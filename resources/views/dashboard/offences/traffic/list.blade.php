@@ -27,7 +27,9 @@
 
                 <tr>
                     <th>{{ $offence->citation_number }}</th>
-                    <th>{{ $offence->offender }}</th>
+                    <th>
+                        {!! link_to_route('offender', $title = $offence->offender, $parameters = [$offence->national_id]) !!}
+                        </th>
                     <th>{{ $offence->date_of_issue }}</th>
                     <th>{{ $offence->court_date }}</th>
                     <th>{{ $offence->officer }}</th>

@@ -33,7 +33,9 @@
                     <td>
                         {!! link_to_route('evidence_profile', $title = $offence->evidence_id , $parameters = [$offence->evidence_id], $attributes = ['class' => 'btn btn-default btn-sm']) !!}
                     </td>
-                    <td>{{ $offence->offender }}</td>
+                    <td>
+                        {!! link_to_route('offender', $title = $offence->offender, $parameters = [$offence->national_id]) !!}
+                    </td>
                     <td>{{ $offence->officer }}</td>
                     <td>{{ $offence->crime_location }}</td>
                     <td>{{ $offence->comments }}</td>
