@@ -65,7 +65,7 @@
                             <ul class="dropdown-menu" role="menu">
                                 <li>
                                     <a href="{{ route('all_offenders') }}">
-                                        <i class="fa fa-btn fa-sign-out"></i>Dashboard
+                                        <i class="fa fa-btn fa-users"></i>Dashboard
                                     </a>
                                 </li>
                                 <li class="divider"></li>
