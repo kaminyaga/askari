@@ -19,20 +19,23 @@ Route::auth();
 
 Route::get('/home', 'HomeController@index');
 
-Route::group(['prefix' => 'dashboard'], function () {
+Route::group(['prefix' => 'dashboard', 'middleware' => 'auth'], function () {
 
     /**
      * Show new offender form to the Askari Platform
      */
     Route::get('offenders', [
         'uses' => 'OffenderController@all',
-        'as' => 'all_offenders'
+        'as' => 'all_offenders',
+        'middleware' => 'auth'
     ]);
 
     /**
      * Show new offender form to the Askari Platform
      */
-    Route::get('offenders/new', 'OffenderController@create');
+    Route::get('offenders/new', [
+        'uses' => 'OffenderController@create'
+    ]);
 
     /**
      * View / Update offenders Profile
