@@ -36,6 +36,9 @@ class EvidenceController extends Controller
         return view('dashboard.offences.evidence.new');
     }
 
+    /**
+    * Store new evidence record
+    */
     public function store(Request $request)
     {
         $this->validate($request, [
