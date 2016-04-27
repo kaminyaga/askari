@@ -47,6 +47,9 @@ class ImpoundController extends Controller
         return view('dashboard.offences.impound.new', compact('offenders'));
     }
 
+    /**
+    * Store new impound record
+    */
     public function store(Request $request)
     {
         $this->validate($request, [
