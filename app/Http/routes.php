@@ -11,13 +11,12 @@
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/', [
+    'uses' => 'HomeController@index',
+    'as' => 'homepage'
+]);
 
 Route::auth();
-
-Route::get('/home', 'HomeController@index');
 
 Route::group(['prefix' => 'dashboard', 'middleware' => 'auth'], function () {
 
